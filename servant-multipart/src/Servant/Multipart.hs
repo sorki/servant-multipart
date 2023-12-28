@@ -392,6 +392,5 @@ instance (HasForeignType lang ftype a, HasForeign lang ftype api)
   foreignFor lang ftype Proxy req =
     foreignFor lang ftype (Proxy @api) $
       req & reqBody .~ Just t
-          & reqBodyContentType .~ ReqBodyMultipart
     where
       t = typeFor lang ftype (Proxy @a)
